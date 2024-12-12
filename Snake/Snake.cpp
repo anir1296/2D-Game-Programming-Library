@@ -48,7 +48,6 @@ Color SNAKE_COLOR(0x80, 0x00, 0x80);
 
 uint grid[NUM_CELLS_VERTICAL][NUM_CELLS_HORIZONTAL];
 
-// Snake state - TODO: might want to encapsulate
 Vector2i snakeHeadCell;
 uint snakeLength = 3;
 DIRECTION snakeDirection;
@@ -79,11 +78,6 @@ inline bool IS_INVALID_STARTING_CELL(int row, int col) {
 #pragma region INITIALIZATION
 
 void initializeGrid() {
-    //#ifdef ENABLE_SPRITE
-    //    cout << "Drawing with sprites.." << endl;
-    //#else
-    //    cout << "Drawing without sprites.." << endl;
-    //#endif // ENABLE_SPRITE
 
     LOOP_GRID(
         [&](int x, int y) {grid[x][y] = CELL_TYPE::EMPTY; }
@@ -158,7 +152,6 @@ void initializeTarget() {
         return;
     }
 
-    // TODO: this is inefficient - instead we can just create an ID for each cell since this is a 2d grid
     bool snakeCell = std::any_of(snakeCells.begin(), snakeCells.end(), [&](Vector2i sc) {
         return (sc.x == targetCol || sc.y == targetRow);
         }
@@ -343,7 +336,6 @@ void detectCollision(RenderWindow& window) {
     }
 
     // 3) check if we hit ourselves
-    // TODO: this is inefficient - instead we can just create an ID for each cell since this is a 2d grid
     auto it = snakeCells.begin();
     std::advance(it, 1);
     bool selfCollision = std::any_of(it, snakeCells.end(), [&](Vector2i sc) {
@@ -371,13 +363,7 @@ int main()
 
     initializeGame();
 
-    // alternatively, we can use Clock, but this is more complicated
-    // Clock clock; clock.getElapsedTime()
-    // TODO: Read up on delta time and variable time in game loop - plenty of resources
-
     window.setFramerateLimit(60);
-
-    sf::Clock cl;
 
     while (window.isOpen())
     {
