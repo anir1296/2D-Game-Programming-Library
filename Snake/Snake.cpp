@@ -227,7 +227,7 @@ void step() {
     newSnakeHead.x += directions[snakeDirection][0];
     newSnakeHead.y += directions[snakeDirection][1];
 
-    // NOTE: This should be efficient because STL list insertion at front is O(1)
+    // this should be efficient because STL list insertion at front is O(1)
     snakeCells.insert(snakeCells.begin(), newSnakeHead);
 
     hasProcessedLastMove = true;
