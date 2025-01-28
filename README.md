@@ -1,5 +1,5 @@
 # 2D-Game-Programming-Library
-This repository hosts a few classic games I've recreated. These were made for Windows using [SFML](https://www.sfml-dev.org/) and Visual Studio 2022. All of the games utilize a 2D grid which greatly simplifies game coding logic.
+This repository hosts a few classic games I've recreated. These were made for Windows in C++ using [SFML](https://www.sfml-dev.org/) and Visual Studio 2022. All of the games utilize a 2D grid which greatly simplifies game coding logic.
 
 
 ![chess_gif](https://github.com/user-attachments/assets/1ced04ff-65b8-4931-b681-29c0fc0c5d51)![pacman_gif](https://github.com/user-attachments/assets/1ba77d2a-874c-4029-9e83-ee0a9853ed54)
